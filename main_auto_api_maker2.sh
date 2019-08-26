@@ -899,7 +899,7 @@ field_found1=False
 final_line=''
 
 
-tests_count_def_str=''
+tests_count_def_str='meaningless_placeholder'
 tests_count_def=0
 fout3=open(str(tests_count_def_str),'w')
 fout3.close()
@@ -960,7 +960,7 @@ for line_c, line in enumerate(line_sum):
 			fk_cap2=fk_cap2.replace(' ','')
 			print('list_m1 is: ' + str(list_m1))
 			print('\n...and fk_cap2 is: ' + str(fk_cap2))
-			p_reply_meaningless=input('break here checking for thing')
+			# p_reply_meaningless=input('break here checking for thing')
 
 			if(list_m1.count(fk_cap2) < 1):
 				s_pre_marker =str(s_pre_marker) + '	' + str(stage_3_s) + ' = models.CharField(max_length=255, null=False)'
@@ -1295,6 +1295,30 @@ cp models.py api/
 python manage.py makemigrations
 python manage.py migrate
 
+
+# this is what adds the foreign keys back in:
+cp ../models.py api/models.py
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
+#----------------------------------
+file_t_count=0
+
+for file in ../seven_namesakes/tests_m[1-99]; do
+
+	let file_t_count=file_t_count+1
+	head -n 199 ../m1_file_tests\$file_t_count | cat >> \$file
+
+	head -n 199 \$file | cat >> api/tests.py
+
+done
+
+#----------------------------------
+
+
 echo '------------------------------------------------------------------------------------------------------'
 
 echo 'THE CREATION OF YOUR DJANGO REST API IS NOW COMPLETE!'
@@ -1321,19 +1345,6 @@ echo 'source environV88/bin/activate'
 echo '--that concludes this automatic portion of this Django Rest API setup.  Good luck!'
 
 
-#----------------------------------
-file_t_count=0
-
-for file in ../seven_namesakes/tests_m[1-99]; do
-
-	let file_t_count=file_t_count+1
-	head -n 199 ../m1_file_tests\$file_t_count | cat >> \$file
-
-	head -n 199 \$file | cat >> api/tests.py
-
-done
-
-#----------------------------------
 
 
 " > api_auto_xxx/finish_my_api.sh
@@ -2234,7 +2245,6 @@ for m_elem in num_models_l1:
 
 
 python3 testing_test_maker.py
-
 
 
 
