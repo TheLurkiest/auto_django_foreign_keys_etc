@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+{% block content %}
+  <h2>Pokedex Basic Info Database</h2>
+  <form method="get">
+    <input type="text" name="poke_name">
+    <button type="submit">enter pokemon name</button>
+  </form>
+  {% if search_result %}
+    {% if search_result.success %}
+      <p>
+        <strong>{{ search_result.name|default_if_none:search_result.login }}</strong> has
+        <strong>{{ search_result.public_repos }}</strong> public repositories.
+      </p>
+    {% else %}
+      <p><em>{{ search_result.message }}</em></p>
+    {% endif %}
+
+    <img src="http://www.pokestadium.com/sprites/xy/{{search_result.name}}.gif" alt="poke2" style="width:200px">
+
+    <p><strong>{{ search_result.name }}</strong> has a height of <strong>{{ search_result.height }}</strong> inches on average.</p>
+    <p><strong>{{ search_result.name }}</strong> has a weight of <strong>{{ search_result.weight }}</strong> pounds for an average individual.</p>
+    <p><strong>{{ search_result.name }}</strong> has a base experience of <strong>{{ search_result.base_experience }}</strong> experience points for an individual on average.</p>
+
+    <h3><strong> Here are the base stats for this pokemon: </h3></strong>
+
+    {% for stat in search_result.stats %}
+      <p><strong>{{ stat }}</p></strong>
+    {% endfor %}
+
+    <p><strong> The ID number is {{ search_result.id }}</strong> for this pokemon.</p>
+
+  {% endif %}
+
+{% endblock %}
