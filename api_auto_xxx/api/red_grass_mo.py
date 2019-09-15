@@ -421,13 +421,12 @@ def poke_mutate(poke_input_name, poke_input_type):
         # =========================================================================
         # =========================================================================
 
-        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
-        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
-        os.system('gifsicle --flip-horizontal ' + 'completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif' + ' -o ' + 'completed_color_change_animations/' + str(poke_id) + 'flipped_FALL_type3.gif' )
+        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
+        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
+        os.system('gifsicle --flip-horizontal ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif' + ' -o ' + './api/completed_color_change_animations/' + str(poke_id) + 'flipped_FALL_type3.gif' )
 
         # transparent background creation:
-        os.system('gifsicle -bII --transparent "#000000" completed_color_change_animations/' + str(renamed_file) + '*type3.gif')
-
+        os.system('gifsicle -bII --transparent "#000000" ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif')
 
     os.system('rm -r api/frame*.png')
 

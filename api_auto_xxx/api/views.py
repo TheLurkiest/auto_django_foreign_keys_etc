@@ -21,6 +21,8 @@ from .red_grass_mo import poke_mutate
 
 def small_pokedex(request):
 
+    d1={}
+
     p_reply7='this is just to break up the code for debugging purposes'
     # context data given-- creating dictionary-- with values
     search_result = {}
