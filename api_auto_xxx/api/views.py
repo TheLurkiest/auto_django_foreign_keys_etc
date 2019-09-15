@@ -115,6 +115,15 @@ def small_pokedex(request):
                 # ==========================================================================
 
 
+                img_data = requests.get(image_url).content
+                with open(str(a1_poke_id) + 'abc123.gif', 'wb') as handler:
+                    handler.write(img_data)
+
+                a1 = io.imread(str(a1_poke_id) + 'abc123.gif')
+
+                handler.close()
+
+                # ==========================================================================
 
 
             print( '\nd1 is: \n\n' + str(d1) )

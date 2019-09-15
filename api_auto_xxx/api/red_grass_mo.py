@@ -411,12 +411,48 @@ def poke_mutate(poke_input_name, poke_input_type):
         # =========================================================================
         # =========================================================================
 
+        os.system('rm ./api/static/images/abc123.gif')
+
         os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
         os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
+
         os.system('gifsicle --flip-horizontal ' + './api/completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif' + ' -o ' + './api/completed_color_change_animations/' + str(poke_id) + 'flipped_FALL_type3.gif' )
 
         # transparent background creation:
         os.system('gifsicle -bII --transparent "#000000" ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif')
+
+        os.system('cp ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif ./api/')
+        os.system('mv ./api/' + str(renamed_file) + '*type3.gif ./api/static/images/abc123.gif')
+
+        os.system('cp ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif ./api/completed_color_change_animations/abc123.gif')
+
+
+        os.system('cp ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif' + ' ./api/static/images/' + str(renamed_file) + '*type3.gif')
+        os.system('cp ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif' + ' ./api/static/images/')
+
+        #os.system('cp ./api/completed_color_change_animations/abc123.gif' + ' ./api/static/images/')
+
+        #os.system('sudo mv ./api/static/images/' + str(renamed_file) + '*type3.gif ./api/static/images/abc123.gif' )
+
+
+#        os.system('cp ./api/completed_color_change_animations/abc123.gif' + ' ./api/static/images/')
+
+
+
+        # os.system('cp ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif' + ' thing123.gif')
+#        os.rename('./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif', 'thing789.gif')
+
+
+
+#        os.system('cp thing789.gif ./api/static/images/')
+
+
+        #os.system('mv ./api/completed_color_change_animations/' + str(renamed_file) + '*type3.gif' + ' ./api/static/images/oddish_FALL_type3.gif')
+
+        #os.system('mv ./api/static/images/' + str(renamed_file) + '*type3.gif ./api/static/images/oddish_FALL_type3.gif' )
+
+
+# oddish_FALL_type3.gif
 
     os.system('rm -r api/frame*.png')
 
