@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -61,6 +62,13 @@
           <p><br></p>
 
           <img src="../../completed_color_change_animations/{{search_result.name}}_FALL_type3.gif" alt="pokemon mutated variant" style="width:200px">
+          <img src="./oddish_FALL_type3.gif" alt="pokemon mutated variant checksum" style="width:200px">
+
+          <img src="oddish_FALL_type3.gif" alt="Italian Trulli">
+
+          <img class="logo" src="{% static 'images/lob_328.gif' %}">
+          <img class="logo" src="{% static 'images/oddish_FALL_type3.gif' %}">
+
 
           <h4><strong> Base Stats: </h4></strong>
 
@@ -72,6 +80,8 @@
           <strong>defense: {{ search_result.defense }}</strong></br>
           <strong>attack: {{ search_result.attack }}</strong></br>
           <strong>hp: {{ search_result.hp }}</strong></br>
+
+
 
           <p><br></p>
 

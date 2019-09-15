@@ -1,16 +1,6 @@
-    # after entering:
-    # import red_grass_mo
-    # ...into idle you can create a turtle object and then make it move randomly
-    # in the following way:
-    # enter the following line of code to start the program:
-    # ...after making sure to enter this: ob1 = red_grass_mo.RedT1()
-    # ...then enter this one line:
-    # y = ob1.turtlesetup()
-    # ...or something like this: func = ob1.turtlesetup()
 
-    # ...followed by something like this:
-    # ob1.moveturtle( func[0], func[1] )
-# ...and boom!  The turtle moves!!! yay!
+# currently using this virtual environment:
+# source ~/Desktop/red_tokens_auth_anti_engineer/lazybones_quick_tokens_auto_django/environV88/bin/activate
 
 def poke_mutate(poke_input_name, poke_input_type):
 
@@ -439,9 +429,9 @@ p_reply3=''
 p_reply2=''
 
 #for testing purposes:
-p_reply2=input('enter pokemon name: ')
-p_reply3=input('enter g, n, or e for grass, normal, or electric: ')
-p_reply4=''
+#p_reply2=input('enter pokemon name: ')
+#p_reply3=input('enter g, n, or e for grass, normal, or electric: ')
+#p_reply4=''
 
 if(p_reply3 == 'g'):
     p_reply4 = 'grass'
@@ -450,7 +440,7 @@ elif(p_reply3 == 'e'):
 elif(p_reply3 == 'n'):
     p_reply4 = 'normal'
 
-poke_mutate(p_reply2, p_reply4)
+#poke_mutate(p_reply2, p_reply4)
 # =========================================================================
 
 #
