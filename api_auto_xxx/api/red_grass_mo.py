@@ -451,8 +451,7 @@ def poke_mutate(poke_input_name, poke_input_type):
 
         #os.system('mv ./api/static/images/' + str(renamed_file) + '*type3.gif ./api/static/images/oddish_FALL_type3.gif' )
 
-
-# oddish_FALL_type3.gif
+    os.system('mv api/static/images/' + str(a1_poke_id).lower() + '_FALL_type3.gif api/static/images/oddish_FALL_type3.gif')
 
     os.system('rm -r api/frame*.png')
 
