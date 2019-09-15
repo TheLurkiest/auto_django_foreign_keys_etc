@@ -55,8 +55,8 @@ def poke_mutate(poke_input_name, poke_input_type):
             if file_name.endswith('.png'):
                 file_path = os.path.join(png_dir_in, file_name)
                 images_in.append(imageio.imread(file_path))
-        print('\n\nHere is imageio.mimsave: '+str('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif'))
-        imageio.mimsave('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif',images_in,fps=25)
+        print('\n\nHere is imageio.mimsave: '+str('./api/' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif'))
+        imageio.mimsave('./api/' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif',images_in,fps=25)
         #imageio.mimsave('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(file_name_list_in[0][:16]) + '2.gif',images_in,fps=25)
         #print('our new file is named using ' + str(file_name_list_in[0][:16]) + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(file_name_list_in[0][:16]) + '2.gif')
         return images_in
@@ -69,8 +69,8 @@ def poke_mutate(poke_input_name, poke_input_type):
                 if(count_file_elem % 2 == 0):
                     file_path = os.path.join(png_dir_in, file_name)
                     images_in.append(imageio.imread(file_path))
-        print('\n\nHere is imageio.mimsave: '+str('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif'))
-        imageio.mimsave('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif',images_in,fps=35)
+        print('\n\nHere is imageio.mimsave: '+str('./api/' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif'))
+        imageio.mimsave('./api/' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(gif_name_out) + '2.gif',images_in,fps=35)
         #imageio.mimsave('./' + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(file_name_list_in[0][:16]) + '2.gif',images_in,fps=25)
         #print('our new file is named using ' + str(file_name_list_in[0][:16]) + str(a1_in_in_pokemon) + '_gif_fr/' + 'output_' + str(a1_in_in_pokemon) + str(file_name_list_in[0][:16]) + '2.gif')
         return images_in
@@ -169,10 +169,10 @@ def poke_mutate(poke_input_name, poke_input_type):
             poke_id = str(p_reply)
 
         img_data = requests.get(image_url).content
-        with open(str(a1_poke_id)+'.gif', 'wb') as handler:
+        with open('api/'+str(a1_poke_id)+'.gif', 'wb') as handler:
             handler.write(img_data)
 
-        a1 = io.imread(str(a1_poke_id)+'.gif')
+        a1 = io.imread('api/'+str(a1_poke_id)+'.gif')
 
         # ====================================================
 
@@ -182,27 +182,30 @@ def poke_mutate(poke_input_name, poke_input_type):
             renamed_file = str(p_mon_elem).replace('/',' ').title().replace(' ','')
         else:
             renamed_file = str(p_mon_elem).lower()
-        im = Image.open( str(renamed_file) + ".gif")
+        im = Image.open( '/home/rustyb69/Desktop/red_tokens_auth_anti_engineer/auto_django_foreign_keys_etc/api_auto_xxx/api/' + str(renamed_file) + ".gif")
 
         index = 1
         for frame in ImageSequence.Iterator(im):
-            frame.save("frame%d.png" % index)
+            frame.save("api/frame%d.png" % index)
             index += 1
         # ====================================================
 
-        a1 = io.imread('frame' + str(num_p_mon + 1)+'.png')
+        a1 = io.imread('api/frame' + str(num_p_mon + 1)+'.png')
+
 
         #a1_frame_test=a1[7,:,:,:]
-        a1_frame_test = io.imread('frame' + str(num_p_mon + 1)+'.png')
+        a1_frame_test = io.imread('api/frame' + str(num_p_mon + 1)+'.png')
 
         #plt.imshow(a1_frame_test)
         #plt.show()
 
-        a1 = io.imread(str(a1_poke_id)+'.gif')
+        a1 = io.imread('api/' + str(a1_poke_id)+'.gif')
         #r1=range(len(a1[:,:,:,0]))
 
+# ls api -l | grep 'frame' | wc -l
+        #os.system("ls -l | grep 'frame' | wc -l > aaa_text.txt")
+        os.system("ls api -l | grep 'frame' | wc -l > aaa_text.txt")
 
-        os.system("ls -l | grep 'frame' | wc -l > aaa_text.txt")
         file_n='aaa_text.txt'
         file_n_o=open(file_n, 'r')
 
@@ -221,7 +224,7 @@ def poke_mutate(poke_input_name, poke_input_type):
 
         frame_file_list=[]
         poke_id = a1_poke_id
-        os.system('mkdir ' + (str('poke_id') + str(poke_id)) + '_gif_fr')
+        os.system('mkdir api/' + (str('poke_id') + str(poke_id)) + '_gif_fr')
 
         new_file_name=''
         images_anim = []
@@ -229,9 +232,9 @@ def poke_mutate(poke_input_name, poke_input_type):
         for frame_elem in r1:
 
             #a1_frame_test=a1[frame_elem,:,:,:]
-            a1_frame_test = io.imread('frame' + str(frame_elem)+'.png')
+            a1_frame_test = io.imread('api/frame' + str(frame_elem)+'.png')
 
-            a1 = io.imread(str(a1_poke_id)+'.gif')
+            a1 = io.imread('api/' + str(a1_poke_id)+'.gif')
             b2=a1_frame_test
             a2=b2
             a3 = a2
@@ -410,25 +413,25 @@ def poke_mutate(poke_input_name, poke_input_type):
             # =====================================================================
 
             new_file_name='autumn_ivy_'+str(frame_elem)+'_makeover_'+str(a1_poke_id)+'.png'
-            plt.imsave( str('./' + (str('poke_id') + str(poke_id)) + '_gif_fr' + '/' + new_file_name), b2)
+            plt.imsave( str('./api/' + (str('poke_id') + str(poke_id)) + '_gif_fr' + '/' + new_file_name), b2)
             frame_file_list.append(new_file_name)
 
         images_anim2=images_anim
-        images_anim2 = fin_gif_out_even((str('poke_id') + str(poke_id)), str('./' + (str('poke_id') + str(poke_id)) + '_gif_fr' + '/'), frame_file_list, images_anim, 're_combo_anim')
+        images_anim2 = fin_gif_out_even((str('poke_id') + str(poke_id)), str('./api/' + (str('poke_id') + str(poke_id)) + '_gif_fr' + '/'), frame_file_list, images_anim, 're_combo_anim')
         # =========================================================================
         # =========================================================================
 
-        os.system( str('cp ' + str('./' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
-        os.system( str('cp ' + str('./' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
+        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
+        os.system( str('cp ' + str('./api/' + ('poke_id' + str(poke_id)) + '_gif_fr' + '/' + 'output_poke_id' + str(poke_id) + 're_combo_anim2.gif')) + ' ' + './completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif')
         os.system('gifsicle --flip-horizontal ' + 'completed_color_change_animations/' + str(poke_id) + '_FALL_type3.gif' + ' -o ' + 'completed_color_change_animations/' + str(poke_id) + 'flipped_FALL_type3.gif' )
 
         # transparent background creation:
         os.system('gifsicle -bII --transparent "#000000" completed_color_change_animations/' + str(renamed_file) + '*type3.gif')
 
 
-    os.system('rm -r frame*.png')
+    os.system('rm -r api/frame*.png')
 
-    os.system('rm -r *_gif_fr')
+    #os.system('rm -r api/*_gif_fr')
 
     #
 # =========================================================================
@@ -436,10 +439,10 @@ p_reply4=''
 p_reply3=''
 p_reply2=''
 
-# for testing purposes:
-#p_reply2=input('enter pokemon name: ')
-#p_reply3=input('enter g, n, or e for grass, normal, or electric: ')
-#p_reply4=''
+#for testing purposes:
+p_reply2=input('enter pokemon name: ')
+p_reply3=input('enter g, n, or e for grass, normal, or electric: ')
+p_reply4=''
 
 if(p_reply3 == 'g'):
     p_reply4 = 'grass'
@@ -448,7 +451,7 @@ elif(p_reply3 == 'e'):
 elif(p_reply3 == 'n'):
     p_reply4 = 'normal'
 
-#poke_mutate(p_reply2, p_reply4)
+poke_mutate(p_reply2, p_reply4)
 # =========================================================================
 
 #
