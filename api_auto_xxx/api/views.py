@@ -2,10 +2,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-
-
-
-
 from django.shortcuts import render
 from django.conf import settings
 import requests
@@ -20,7 +16,12 @@ import imageio
 
 import os
 
+#from .red_grass_mo import poke_mutate
+from .red_grass_mo import poke_mutate
+
 def small_pokedex(request):
+
+    p_reply7='this is just to break up the code for debugging purposes'
     # context data given-- creating dictionary-- with values
     search_result = {}
     if 'poke_name' in request.GET:
@@ -36,8 +37,6 @@ def small_pokedex(request):
         if(r.ok):
             repoItem = json.loads(r.text or r.content)
 
-            print( '\n---====================================---\n\n')
-            print( '\n---====================================---\n\n')
             print( '\n---====================================---\n\n')
 
             l1=list(range(6))
@@ -61,22 +60,16 @@ def small_pokedex(request):
 
 
             d1['moves']=[]
-            # d2['everywhere']['fleas']=453
-
 
             for l_mo_elem in len_moves:
                 repo_move1 = str(repoItem['moves'][l_mo_elem]['move']['name'])
                 repo_move1_lvl = str(repoItem['moves'][l_mo_elem]['version_group_details'][0]['level_learned_at'])
-#                d1[str(repo_move1)] = str(repo_move1_lvl)
-                #d1['moves'][str(repo_move1)]=str(repo_move1_lvl)
 
                 d1['moves'].append([str(repo_move1), int(repo_move1_lvl)])
 
-
-            #search_result_type_data_s = str(search_result['types'][0]['type']['name'])
-
             d1['type1'] = str(search_result['types'][0]['type']['name'])
             l2.append(['type1', str(search_result['types'][0]['type']['name'])])
+
             if(len(search_result['types']) >= 2):
                 d1['type2'] = str(search_result['types'][1]['type']['name'])
                 l2.append(['type2', str(search_result['types'][1]['type']['name'])])
@@ -84,59 +77,56 @@ def small_pokedex(request):
                 d1['type2'] = 'none'
                 l2.append(['type2', 'none'])
 
-            #print( '\nThe repoItem dictionary type info is: \n\n' + str(repoItem['types'][0]['type']['name']))
-            #print( '\nThe repoItem dictionary type info is: \n\n' + str(repo_item_type_data) )
+            # ==========================================================================
 
-            #print( '\nThe repoItem dictionary type_d info is: \n\n' + str(repo_item_type_data_d) )
+            if(d1['type1'] == 'grass' or d1['type1'] == 'electric' or d1['type1'] == 'normal'):
+                poke_mutate(d1['name'], d1['type1'])
+                print('type1 is '+ str(d1['type1']))
+                #p_reply7=input('debug: this means that we confirmed one of the 3 variant types in prep for alterations')
+            elif(d1['type2'] == 'grass' or d1['type2'] == 'electric' or d1['type2'] == 'normal'):
+                poke_mutate(d1['name'], d1['type2'])
+                print('type2 is '+ str(d1['type2']))
+                #p_reply7=input('debug: this means that we confirmed one of the 3 variant types in prep for alterations')
+            else:
+                a1_poke_id = str(d1['name'])
+                image_url = 'http://www.pokestadium.com/sprites/xy/'+str(d1['name'])+'.gif'
+                #p_reply7=input('debug: this means NONE of the 3 types were detected')
 
-            #print( '\nThe search_result_type_data_s info is: \n\n' + str(search_result_type_data_s) )
+                img_data = requests.get(image_url).content
+                with open('completed_color_change_animations/' + str(a1_poke_id) + '_FALL_type3.gif', 'wb') as handler:
+                    handler.write(img_data)
+
+                a1 = io.imread('completed_color_change_animations/' + str(a1_poke_id) + '_FALL_type3.gif')
+
+                # ==========================================================================
+                handler.close()
+
+
+                img_data = requests.get(image_url).content
+                with open(str(a1_poke_id) + '_FALL_type3.gif', 'wb') as handler:
+                    handler.write(img_data)
+
+                a1 = io.imread(str(a1_poke_id) + '_FALL_type3.gif')
+
+
+                handler.close()
+                # ==========================================================================
+
+
+
+
             print( '\nd1 is: \n\n' + str(d1) )
-            #print( '\nstats for d1 are: \n\n' + str(d1['name']) )
-
             print( '\n---====================================---\n\n')
             print( '\n---====================================---\n\n')
-
             print( '\nl2 is: \n\n' + str(l2) )
-
-
             print( '\n---====================================---\n\n')
             print( '\n---====================================---\n\n')
-
-            #with open(str(poke_name) + '_dict_repo.json', 'wb') as handler:
-            #    handler.write(repoItem)
-            #handler.close()
 
             search_result['last_search'] = str(poke_name)
-#            print('\n---===========---\nLast Search was: ' + str(search_result['last_search']))
-#    print('search_result is ' + str(search_result))
 
-#    data1 = requests.get(url).content
-
-#    with open(str(poke_name) + '_dict.json', 'wb') as handler:
-#        handler.write(data1)
-#    handler.close()
-    #a1 = io.imread(str(poke_name)+'_dict.json')
-    #print( '\n---====================================---\n\na1 is: ' + str(a1) )
-    # =========================================================
-#    with open(str(poke_name)+'_dict.json') as data1:
-#        data2 = json.load(data1)
-#    a2 = io.imread(str(poke_name)+'_dict.json')
-    #print( '\n---====================================---\n\na2 is: ' + str(a2) )
-    # =========================================================
-
-    #jsonnn_tree = objectpath.Tree(data['types']['type'])
-    #result_tuple = tuple(jsonnn_tree.execute('$..type'))
-    print( '\n---====================================---\n\n')
-    print( '\n---====================================---\n\n')
-    print( '\n---====================================---\n\n')
-    print( '\n---====================================---\n\n')
-
-#    print( '\n---====================================---\n\nFINAL RESULT-- TYPE INFO IS: ' + str(result_tuple) )
-    # =========================================================
-
-    #return render(request, 'api/small_pokedex.html', {'search_result': search_result}, {'search_result2': repo_item_type_data})
-    #return render(request, 'api/small_pokedex.html', {'search_result': search_result_type_data_s})
     return render(request, 'api/small_pokedex.html', {'search_result': d1})
+
+
 
 
 from .models import FarmerId
