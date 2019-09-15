@@ -53,15 +53,32 @@
         <div class="five columns">
           <img src="http://www.pokestadium.com/sprites/xy/{{search_result.name}}.gif" alt="poke2" style="width:200px">
 
-          <p><strong>{{ search_result.name }}</strong> has a height of <strong>{{ search_result.height }}</strong> inches on average.</p>
-          <p><strong>{{ search_result.name }}</strong> has a weight of <strong>{{ search_result.weight }}</strong> pounds for an average individual.</p>
-          <p><strong>{{ search_result.name }}</strong> has a base experience of <strong>{{ search_result.base_experience }}</strong> experience points for an individual on average.</p>
+          <h4><strong> Type Info: </h4></strong>
 
+          <strong><font color="orange">Type1: {{ search_result.type1 }} </font></strong></br>
+          <strong><font color="orange">Type2: {{ search_result.type2 }} </font></strong></br>
 
-          <h3><strong> Here are the base stats for this pokemon: </h3></strong>
+          <p><br></p>
 
-          {% for stat in search_result.stats %}
-            <p><strong>{{ stat }}</p></strong>
+          <h4><strong> Base Stats: </h4></strong>
+
+          <strong>speed: {{ search_result.speed }}</strong></br>
+
+          <strong>special defense: {{ search_result.specialdefense }}</strong></br>
+          <strong>special attack: {{ search_result.specialattack }}</strong></br>
+
+          <strong>defense: {{ search_result.defense }}</strong></br>
+          <strong>attack: {{ search_result.attack }}</strong></br>
+          <strong>hp: {{ search_result.hp }}</strong></br>
+
+          <p><br></p>
+
+          <h5><strong> Moveset and Levels Learned: </h5></strong>
+
+          {% for move1 in search_result.moves %}
+            <strong>{{ move1.0 }}: </strong>
+            <strong>{{ move1.1 }}</br></strong>
+
           {% endfor %}
 
           <p><strong> The ID number is {{ search_result.id }}</strong> for this pokemon.  Use this number when searching for more info on this pokemon from the Advanced Pokedex Database.</p>

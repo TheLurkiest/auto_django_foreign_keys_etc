@@ -148,8 +148,8 @@ elif(a1_poke_id == 'n'):
     p_list_to_change = too_normal
 
 else:
-    #p_list_to_change.append(a1_poke_id)
-    p_list_to_change = too_normal
+    p_list_to_change.append(a1_poke_id)
+    #p_list_to_change = too_normal
 
 import requests
 
