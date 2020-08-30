@@ -2,6 +2,8 @@
 HOW_TO_GET_STARTED
 -----------------
 
+note: new comp-- aug 30 test needed
+
 Basic instructions on how to create a Django Rest API through the use of a shell script (and python code created *by* the shell script)-- allowing the user to instantly jump from their original designs to functional code, with little/no typing required to get from one stage to the next: just copy/paste your tables/diagrams directly into a spreadsheet file and you can have an entire API set up in less than 5 minutes.
 
 
