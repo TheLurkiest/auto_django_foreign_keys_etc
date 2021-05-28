@@ -21,9 +21,13 @@ git clone https://github.com/TheLurkiest/auto_django_foreign_keys_etc.git
 source environV88/bin/activate
 pip3 install -r requirements.txt
 
-# ....and then set a user/pword like normal 
+# ...and before moving on, at some point we will likely have to fix something, by applying some unapplied migrations using terminal command:
 
-python manage.py createsuperuser
+python manage.py migrate
+
+# ....and then set a user/pword like normal:
+
+python3.7 manage.py createsuperuser
 
 # ...i just used something simple: user: moonmoon pword: sun
 
