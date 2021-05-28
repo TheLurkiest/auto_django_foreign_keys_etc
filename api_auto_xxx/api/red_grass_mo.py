@@ -172,7 +172,7 @@ def poke_mutate(poke_input_name, poke_input_type):
             renamed_file = str(p_mon_elem).replace('/',' ').title().replace(' ','')
         else:
             renamed_file = str(p_mon_elem).lower()
-        im = Image.open( '/home/rustyb69/Desktop/red_tokens_auth_anti_engineer/auto_django_foreign_keys_etc/api_auto_xxx/api/' + str(renamed_file) + ".gif")
+        im = Image.open( '/home/baby_battlemech/Desktop/main_workspace/django_workspace/auto_django_foreign_keys_etc/api_auto_xxx/api/' + str(renamed_file) + ".gif")
 
         index = 1
         for frame in ImageSequence.Iterator(im):

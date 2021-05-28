@@ -1,4 +1,53 @@
 # auto_django_foreign_keys_etc
+
+# ----------------------------------------------------------------------------
+
+
+
+# May 2021:
+
+# ...so here's a few tips on setting this thing up in the future: since we've altered things a little bit with the p-dex being added to our django setup, just for testing/experimentation purposes, it doesn't really reset quite right the way it should anymore since these modifications
+
+# ....might fix that at some point, but for the time being, just know that you wanna use the following commands instead of auto-setting up Django like normal (w/ the main_auto
+
+sudo apt-get install git
+
+git clone https://github.com/TheLurkiest/auto_django_foreign_keys_etc.git
+
+./venv_autosetup_simpler.sh
+
+# ...the order of these last too commands might be flipped around a little bit but should be fine either way:
+
+source environV88/bin/activate
+pip3 install -r requirements.txt
+
+# ....and then set a user/pword like normal 
+
+python manage.py createsuperuser
+
+# ...i just used something simple: user: moonmoon pword: sun
+
+# and then started up the server and plugged in appropriate text into the URL (as seen below):
+
+python manage.py runserver
+
+# login and home page of peanut farmer portion of Django rest API:
+http://127.0.0.1:8000/admin
+
+# to access the p-dex, enter into URL:
+http://127.0.0.1:8000/api/small_pokedex/
+
+
+
+
+# -------------------------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------------------
+
+
+
 HOW_TO_GET_STARTED
 -----------------
 
