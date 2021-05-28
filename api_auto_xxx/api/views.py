@@ -91,7 +91,7 @@ def small_pokedex(request):
                 #p_reply7=input('debug: this means that we confirmed one of the 3 variant types in prep for alterations')
             else:
                 a1_poke_id = str(d1['name'])
-                image_url = 'http://www.pokestadium.com/sprites/xy/'+str(d1['name'])+'.gif'
+                image_url = 'https://www.pkparaiso.com/imagenes/xy/sprites/animados/'+str(d1['name'])+'.gif'
                 #p_reply7=input('debug: this means NONE of the 3 types were detected')
 
                 img_data = requests.get(image_url).content

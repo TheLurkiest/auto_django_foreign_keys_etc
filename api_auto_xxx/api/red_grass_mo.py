@@ -90,7 +90,7 @@ def poke_mutate(poke_input_name, poke_input_type):
     b_gamma_e_type = (7/8)
 
     # best source of gifs currently-- is NOW THIS INSTEAD:
-    # http://www.pokestadium.com/sprites/xy/cubone.gif
+    # https://www.pkparaiso.com/imagenes/xy/sprites/animados/cubone.gif
     p_list_to_change=[]
     a1_poke_id = str(poke_input_name)
     p_list_to_change.append(a1_poke_id)
@@ -151,7 +151,7 @@ def poke_mutate(poke_input_name, poke_input_type):
         p_reply = a1_poke_id
         poke_id = str(p_reply)
         # ==========================================================================
-        image_url = 'http://www.pokestadium.com/sprites/xy/'+str(a1_poke_id)+'.gif'
+        image_url = 'https://www.pkparaiso.com/imagenes/xy/sprites/animados/'+str(a1_poke_id)+'.gif'
         s2 = poke_id
         if (s2.count('/') == 1):
             a1_poke_id = 'Back' + str(a1_poke_id[( a1_poke_id.find('/') + 1 ):]).title()

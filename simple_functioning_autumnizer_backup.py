@@ -1,10 +1,10 @@
 # autumn venusaur makeover:
 
 # here is our newest gif url source--first front gif:
-# http://www.pokestadium.com/sprites/xy/cubone.gif
+# https://www.pkparaiso.com/imagenes/xy/sprites/animados/cubone.gif
 
 # ...then back gif:
-# http://www.pokestadium.com/sprites/xy/back/cubone.gif
+# https://www.pkparaiso.com/imagenes/xy/sprites/animados/back/cubone.gif
 
 # HOW TO USE:
 # just enter this terminal command to use this python code:
@@ -109,7 +109,7 @@ g_gamma_e_type = (95/100)
 b_gamma_e_type = (7/8)
 
 # best source of gifs currently-- is NOW THIS INSTEAD:
-# http://www.pokestadium.com/sprites/xy/cubone.gif
+# https://www.pkparaiso.com/imagenes/xy/sprites/animados/cubone.gif
 p_list_to_change=[]
 a1_poke_id = 'venonat'
 p_reply = a1_poke_id
@@ -178,7 +178,7 @@ for num_p_mon, p_mon_elem in enumerate(p_list_to_change):
     p_reply = a1_poke_id
     poke_id = str(p_reply)
     # ==========================================================================
-    image_url = 'http://www.pokestadium.com/sprites/xy/'+str(a1_poke_id)+'.gif'
+    image_url = 'https://www.pkparaiso.com/imagenes/xy/sprites/animados/'+str(a1_poke_id)+'.gif'
     s2 = poke_id
     if (s2.count('/') == 1):
         a1_poke_id = 'Back' + str(a1_poke_id[( a1_poke_id.find('/') + 1 ):]).title()
