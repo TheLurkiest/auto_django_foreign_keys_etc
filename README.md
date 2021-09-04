@@ -2,24 +2,51 @@
 
 # ----------------------------------------------------------------------------
 
-
-
 # May 2021:
 
 # ...so here's a few tips on setting this thing up in the future: since we've altered things a little bit with the p-dex being added to our django setup, just for testing/experimentation purposes, it doesn't really reset quite right the way it should anymore since these modifications
 
 # ....might fix that at some point, but for the time being, just know that you wanna use the following commands instead of auto-setting up Django like normal (w/ the main_auto
 
+a)
 sudo apt-get install git
-
 git clone https://github.com/TheLurkiest/auto_django_foreign_keys_etc.git
-
 ./venv_autosetup_simpler.sh
 
 # ...the order of these last too commands might be flipped around a little bit but should be fine either way:
 
+b)
 source environV88/bin/activate
+
 pip3 install -r requirements.txt
+
+# ...then just follow the instructions displayed on the screen to activate this virtual environment if you have not already done so, and once done, simply enter this command into terminal (from location of shell script file) to get things started:
+
+./main_auto_api_maker2.sh
+
+# --If you wish to speed things up just hit enter at 1st prompt to set input data to the default files (xa.csv and xb.csv)-- or enter ADVANCED to enter the file names directly.  For now, just use the default xa.csv, and xb.csv-- once you understand this and know you can make it work, you can create your own unique files to enter info in Part 2.
+
+c)
+# --so, if you entered "ADVANCED" at the first prompt-- for now just enter the default if you haven't created your own .csv file yet-- firstly:
+nano xa.csv
+# --and then at the next prompt within the advanced sub-menu enter this:
+nano xb.csv
+
+d)
+# --then, just follow instructions displayed on terminal which tell you to enter these 2 commands into terminal:
+
+cd api_auto_xxx
+./finish_my_api
+
+e)
+--further terminal commands will then display to the terminal, informing you of how you can proceed to make sure the process worked correctly, but at this point the API should be totally finished!
+
+
+
+
+# ...then just follow the instructions displayed on the screen to activate this virtual environment if you have not already done so, and once done, simply enter this command into terminal (from location of shell script file) to get things started:
+
+./main_auto_api_maker2.sh
 
 # ...and before moving on, at some point we will likely have to fix something, by applying some unapplied migrations using terminal command:
 

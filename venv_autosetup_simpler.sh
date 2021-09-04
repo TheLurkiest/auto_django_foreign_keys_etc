@@ -20,3 +20,16 @@ echo --then hit enter at the first prompt
 echo --and just follow the instructions that are displayed on the terminal to complete the process!
 
 echo --this should take less than 30 seconds.
+
+echo "fixing numpy setup: this may take a little bit of time to finish:"
+./numpy-fix1.sh
+# i automated that numpy fix for now, if we dont need it we can comment it out
+
+echo "...and; IF numpy doesnt install properly during the requirements.txt installation stage-- try running this AGAIN to fix it:"
+echo "./numpy-fix1.sh"
+
+
+
+simply enter this command into terminal (from location of shell script file) to get things started:
+
+./main_auto_api_maker2.sh
