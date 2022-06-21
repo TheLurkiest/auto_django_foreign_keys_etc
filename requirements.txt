@@ -16,7 +16,7 @@ imageio==2.5.0
 kiwisolver==1.1.0
 matplotlib==3.1.1
 networkx==2.3
-numpy==1.17.2
+numpy==1.22.0
 objectpath==0.6.1
 pillow==8.2.0
 pyasn1==0.4.6
